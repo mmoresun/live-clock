@@ -8,6 +8,10 @@ function App() {
   // initializing local state to get value from SearchPanel, save it and thansfer to DateCard
   const [value, setValue] = useState('');
 
+  // initializing local state to catch time from fetch
+
+  const [time, setTime] = useState('')
+
   // handleZoneChange is handling user's choosing the time zone from the list and saving it to the _value_ variable
 
   const handleZoneChange = (event) => {
@@ -15,21 +19,26 @@ function App() {
 
   };
 
+  // getting time from server
+  const getTime = (value) => {
+    fetch(`https://worldtimeapi.org/api/timezone/${value}`) // fetching data from server
+      .then((response) => response.json())
+      .then((data) => setTime(data)) // saving data to time variable with setTime
+      .catch((err) => console.log(err));
+  }
+
   useEffect(() => {
     const myInterval = setInterval(() => { // refreshing with setInterval every 5 seconds
 
-      fetch(`https://worldtimeapi.org/api/timezone/${value}`) // fetching data from server
-        .then((response) => response.json())
-        .then((data) => setTime(data)) // saving data to time variable with setTime
-        .catch((err) => console.log(err));
+      getTime(value);
+
     }, 5000);
+
     return () => clearInterval(myInterval);
 
   }, [value]); // condition to rerender 
 
-  // initializing local stage to catch time from fetch
 
-  const [time, setTime] = useState('')
 
   return (
 
@@ -43,6 +52,7 @@ function App() {
         time={time} // _time_ is going to the DateCard as a prop
         value={value} // _value_ variable is going to DateCard as a prop
       />
+      <h6><a href='https://github.com/mmoresun/live-clock/tree/main'>Source code</a></h6>
 
     </div>
   );
