@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SearchPanel = ({ handleZoneChange, value }) => {
 
@@ -8,33 +8,35 @@ const SearchPanel = ({ handleZoneChange, value }) => {
 
     // fetching data from World Time API
 
-    fetch('https://worldtimeapi.org/api/timezone')
-        .then(response => response.json())
-        .then(json => setZoneList(json))
-        .catch(err => console.log(err))
+    useEffect(() => {
 
+        fetch('https://worldtimeapi.org/api/timezone')
+            .then(response => response.json())
+            .then(json => setZoneList(json))
+            .catch(err => console.log(err))
+
+    }, []);
     return (
         // stylizing our component a little
         <div className='searchpanel'>
 
-            <select                
+            <select
                 onChange={handleZoneChange} // when user is choosing any item of the list, function handleZoneChange is working and transferring {value} to the parent App component
             >
-            <option>
-                Choose a city/region
-            </option>
-            
+                <option>
+                    Choose a city/region
+                </option>
                 {zoneList.map((item) => { // .map() array method is going thru zoneList array, creating list of <option> tags with unique key and putting every element of array inside
 
                     return (
                         <option
-                            key={item}                            
+                            key={item}
                         >
                             {item}
 
                         </option>)
                 })}
-            </select>            
+            </select>
         </div>
     );
 }

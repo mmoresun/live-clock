@@ -14,7 +14,8 @@ code {
 
 .datecard {
 
-  width: 600px;
+  max-width: 600px;
+  width: 90%;
   border: 2px #ccc solid;
   background-color: rgba(0, 255, 255, 0.071);
   border-radius: 10px;
@@ -25,9 +26,25 @@ code {
 
 .searchpanel {
 
-  width: 600px;
+  max-width: 600px;
+  width: 90%;
   border: 2px #ccc solid;
   background-color: rgba(255, 242, 0, 0.071);
+  border-radius: 10px;
+  margin: 10px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+
+  max-width: 600px;
+  width: 90%;
+  border: 2px #ccc solid;
+  background-color: rgba(255, 0, 0, 0.071);
   border-radius: 10px;
   margin: 10px;
   min-height: 70px;

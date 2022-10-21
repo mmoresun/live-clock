@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import DateCard from './components/DateCard';
 import SearchPanel from './components/SearchPanel';
+import Header from './components/Header';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
 
   };
 
-  // getting time from server
+  // function for getting time from the server
   const getTime = (value) => {
     fetch(`https://worldtimeapi.org/api/timezone/${value}`) // fetching data from server
       .then((response) => response.json())
@@ -28,22 +29,23 @@ function App() {
   }
 
   useEffect(() => {
-    const myInterval = setInterval(() => { // refreshing with setInterval every 5 seconds
 
-      getTime(value);
+    getTime(value); // get data for the first time...
 
-    }, 5000);
+    const myInterval = setInterval(() => {      
+
+      getTime(value); // ... and refreshing it
+
+    }, 5000); // refreshing with setInterval every 5 seconds
 
     return () => clearInterval(myInterval);
-
   }, [value]); // condition to rerender 
-
-
 
   return (
 
     <div className='App'>
 
+      <Header />
       <SearchPanel
         handleZoneChange={handleZoneChange} // _handleZoneChange_ is going to SearchPanel like a prop
         value={value} // ... as wel as _value_
