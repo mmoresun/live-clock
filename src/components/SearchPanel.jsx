@@ -21,6 +21,7 @@ const SearchPanel = ({ handleZoneChange, value }) => {
         <div className='searchpanel'>
 
             <select
+                value={value}
                 onChange={handleZoneChange} // when user is choosing any item of the list, function handleZoneChange is working and transferring {value} to the parent App component
             >
 
@@ -29,7 +30,6 @@ const SearchPanel = ({ handleZoneChange, value }) => {
                     return (
                         <option
                             key={item}
-                            selected={item === value}
                         >
                             {item}
 
