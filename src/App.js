@@ -30,16 +30,20 @@ function App() {
 
   useEffect(() => {
 
-    getTime(value); // get data for the first time...
+    let myInterval;
 
-    const myInterval = setInterval(() => {      
+    if (value) { // preventing from sending an empty request
 
-      getTime(value); // ... and refreshing it
+      getTime(value); // requesting
 
-    }, 5000); // refreshing with setInterval every 5 seconds
-
+      myInterval = setInterval(() => { // refreshing with setInterval every 5 seconds
+        
+        getTime(value);
+        
+      }, 5000);
+    }
     return () => clearInterval(myInterval);
-  }, [value]); // condition to rerender 
+  }, [value]); // condition to rerender
 
   return (
 
