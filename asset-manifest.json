@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/live-clock/static/css/main.b6b06860.css",
-    "main.js": "/live-clock/static/js/main.b4692b6e.js",
+    "main.js": "/live-clock/static/js/main.ca3f50d8.js",
     "index.html": "/live-clock/index.html",
     "main.b6b06860.css.map": "/live-clock/static/css/main.b6b06860.css.map",
-    "main.b4692b6e.js.map": "/live-clock/static/js/main.b4692b6e.js.map"
+    "main.ca3f50d8.js.map": "/live-clock/static/js/main.ca3f50d8.js.map"
   },
   "entrypoints": [
     "static/css/main.b6b06860.css",
-    "static/js/main.b4692b6e.js"
+    "static/js/main.ca3f50d8.js"
   ]
 }
