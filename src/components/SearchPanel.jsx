@@ -23,14 +23,13 @@ const SearchPanel = ({ handleZoneChange, value }) => {
             <select
                 onChange={handleZoneChange} // when user is choosing any item of the list, function handleZoneChange is working and transferring {value} to the parent App component
             >
-                <option>
-                    Choose a city/region
-                </option>
+
                 {zoneList.map((item) => { // .map() array method is going thru zoneList array, creating list of <option> tags with unique key and putting every element of array inside
 
                     return (
                         <option
                             key={item}
+                            selected={item === value}
                         >
                             {item}
 

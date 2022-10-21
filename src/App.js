@@ -7,7 +7,7 @@ import Header from './components/Header';
 function App() {
 
   // initializing local state to get value from SearchPanel, save it and thansfer to DateCard
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('Europe/Warsaw');
 
   // initializing local state to catch time from fetch
 
@@ -28,6 +28,8 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  ;
+
   useEffect(() => {
 
     let myInterval;
@@ -37,13 +39,14 @@ function App() {
       getTime(value); // requesting
 
       myInterval = setInterval(() => { // refreshing with setInterval every 5 seconds
-        
+
         getTime(value);
-        
+
       }, 5000);
     }
     return () => clearInterval(myInterval);
   }, [value]); // condition to rerender
+
 
   return (
 
