@@ -18,7 +18,7 @@ const SearchPanel = ({ handleZoneChange, value }) => {
     }, []);
     return (
         // stylizing our component a little
-        <div className='searchpanel'>
+        <div className='searchpanel form-select form-select-sm' ariaLabel=".form-select-sm example">
 
             <select
                 value={value}
@@ -29,7 +29,7 @@ const SearchPanel = ({ handleZoneChange, value }) => {
 
                     return (
                         <option
-                            key={item}
+                            key={item}                            
                         >
                             {item}
 
