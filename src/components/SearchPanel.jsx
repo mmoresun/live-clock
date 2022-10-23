@@ -36,16 +36,23 @@ const SearchPanel = ({ handleZoneChange, value, handleRefreshChange }) => {
                         </option>)
                 })}
             </select>
+            <div>
+                <p>Refresh rate:&nbsp;
+                    <select
+                        onChange={handleRefreshChange}>
 
-            <p>Refresh rate:</p>
-            <select
-                onChange={handleRefreshChange}>
+                        <option value={'5000'}>5 sec</option>
+                        <option value={'10000'}>10 sec</option>
+                        <option value={'15000'}>15 sec</option>
 
-                <option value={'5000'}>5 sec</option>
-                <option value={'10000'}>10 sec</option>
-                <option value={'15000'}>15 sec</option>
-
-            </select>
+                    </select></p>
+                {/* <p>Start/stop refreshing:
+                    <input 
+                    type='checkbox'
+                    onChange={handleStartStop}                    
+                    />
+                </p> */}
+            </div>
         </div>
     );
 }
