@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const SearchPanel = ({ handleZoneChange, value }) => {
+const SearchPanel = ({ handleZoneChange, value, handleRefreshChange }) => {
 
     // creating a local state, where fetched data will be saved
 
@@ -18,23 +18,33 @@ const SearchPanel = ({ handleZoneChange, value }) => {
     }, []);
     return (
         // stylizing our component a little
-        <div className='searchpanel form-select form-select-sm' ariaLabel=".form-select-sm example">
+        <div className='searchpanel'>
 
+            <p>Region:</p>
             <select
                 value={value}
                 onChange={handleZoneChange} // when user is choosing any item of the list, function handleZoneChange is working and transferring {value} to the parent App component
             >
-
                 {zoneList.map((item) => { // .map() array method is going thru zoneList array, creating list of <option> tags with unique key and putting every element of array inside
 
                     return (
                         <option
-                            key={item}                            
+                            key={item}
                         >
                             {item}
 
                         </option>)
                 })}
+            </select>
+
+            <p>Refresh rate:</p>
+            <select
+                onChange={handleRefreshChange}>
+
+                <option value={'5000'}>5 sec</option>
+                <option value={'10000'}>10 sec</option>
+                <option value={'15000'}>15 sec</option>
+
             </select>
         </div>
     );
