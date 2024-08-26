@@ -1,5 +1,1 @@
-Hello Peter and Piotr, 
-
-here is the finished live clock project, enjoy :)
-
-Anton
+World Clock api made with React.js, REST API (World Time API). User can change the refresh rate
